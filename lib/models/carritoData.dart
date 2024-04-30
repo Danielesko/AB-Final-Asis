@@ -1,11 +1,8 @@
 class Carrito {
-  // Properties
+  
   String nombre;
   String productos;
-  double precio;
+  double? precio; // Hace que el precio sea opcional
 
-  // Constructor
-  Carrito({required this.nombre, required this.productos, required this.precio});
-
-
+  Carrito({required this.nombre, required this.productos, this.precio});
 }
