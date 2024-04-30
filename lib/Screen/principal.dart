@@ -22,9 +22,17 @@ class _SesionState extends  ConsumerState<Sesion> {
       appBar: AppBar(
         title: const Text('Carritos'),
       ),
-      body: const Center(
-        child: Text('Welcome to Sesion'),
-      ),
+      body: ListView.builder(
+        itemBuilder: (ctx, index) => Card( 
+          child: ListTile(
+            title: Text(listaCarritos[index].nombre,
+              style: const TextStyle(
+                fontSize: 19, fontWeight: FontWeight.bold
+              ),
+            ),
+          ),
+        ),
+      itemCount: listaCarritos.length),
     );
   }
 }
