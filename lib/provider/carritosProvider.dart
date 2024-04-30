@@ -12,9 +12,18 @@ class carrito_Notifier extends StateNotifier<List<Carrito>>{
     state = state.where((carritoAhora) => carritoAhora.id != id).toList();
   }
   edita(Carrito carritoactualizada, String idantes){
+  state = state.map((carritoAhora) {
+    if (carritoAhora.id == idantes) {
+      return carritoAhora.copyWith(nombre: carritoactualizada.nombre);
+    }
+    return carritoAhora;
+  }).toList();
+}
+
+  void editaProductos(Carrito nuevoProductosCarrito, String id) {
     state = state.map((carritoAhora) {
-      if (carritoAhora.id == idantes) {
-        return carritoactualizada;
+      if (carritoAhora.id == id) {
+        return carritoAhora.copyWith(productos: nuevoProductosCarrito.productos);
       }
       return carritoAhora;
     }).toList();

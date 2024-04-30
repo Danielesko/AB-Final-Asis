@@ -48,6 +48,7 @@ class _SesionState extends ConsumerState<Sesion> {
                       ),
                     ],
                   ),
+                  onTap: () => mostrarCarrito(context, listaCarritos[index]),
                 ),
               ),
           itemCount: listaCarritos.length),
@@ -70,5 +71,10 @@ class _SesionState extends ConsumerState<Sesion> {
 
   void delete(String id) {
     ref.read(carritosProvider.notifier).delete(id);
+  }
+
+  void mostrarCarrito (BuildContext context, Carrito carrito){
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (ctx) => carritoScreen(carrito: carrito)));
   }
 }
