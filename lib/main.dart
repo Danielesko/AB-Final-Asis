@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Screen/Sesion.dart';
+import 'package:flutter_application_1/Screen/principal.dart';
 import 'package:tbib_splash_screen/splash_screen_view.dart';
 
 void main() {
