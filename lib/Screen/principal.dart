@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Screen/carritoAddScreen.dart';
 import 'package:flutter_application_1/Screen/carritoEditScreen.dart';
 import 'package:flutter_application_1/models/carritoData.dart';
 import 'package:flutter_application_1/provider/carritosProvider.dart';
@@ -50,7 +51,16 @@ class _SesionState extends ConsumerState<Sesion> {
                 ),
               ),
           itemCount: listaCarritos.length),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => add(context),
+        child: const Icon(Icons.add),
+      ),
     );
+  }
+
+  void add(BuildContext context) {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (ctx) => const carritoAddScreen()));
   }
 
   void edita(BuildContext context, Carrito carritoSeleccionado) {

@@ -4,6 +4,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class carrito_Notifier extends StateNotifier<List<Carrito>>{
   carrito_Notifier() : super(misCarritosDePrueba);
+
+  add(Carrito carrito) {
+    state = [carrito, ...state];
+  }
   delete(String id){
     state = state.where((carritoAhora) => carritoAhora.id != id).toList();
   }
