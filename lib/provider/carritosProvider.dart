@@ -7,10 +7,10 @@ class carrito_Notifier extends StateNotifier<List<Carrito>>{
   delete(String id){
     state = state.where((carritoAhora) => carritoAhora.id != id).toList();
   }
-  edita(Carrito carrito, String nombre){
+  edita(Carrito carritoactualizada, String idantes){
     state = state.map((carritoAhora) {
-      if (carritoAhora.nombre == carrito.nombre) {
-        return carrito;
+      if (carritoAhora.id == idantes) {
+        return carritoactualizada;
       }
       return carritoAhora;
     }).toList();

@@ -5,9 +5,9 @@ class Carrito {
   
   String id;
   String nombre;
-  String productos;
+  String? productos;
   double? precio; // Hace que el precio sea opcional
 
-  Carrito({required this.nombre, required this.productos, this.precio}) : id = uuid.v4();
+  Carrito({required this.nombre, this.productos, this.precio}) : id = uuid.v4();
 
 }
