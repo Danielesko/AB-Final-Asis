@@ -5,7 +5,7 @@ import 'package:flutter_application_1/models/carritoData.dart';
 import 'package:flutter_application_1/provider/carritosProvider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'carritoScreen.dart';
-hola
+
 class Sesion extends ConsumerStatefulWidget {
   const Sesion({super.key});
 
@@ -73,8 +73,8 @@ class _SesionState extends ConsumerState<Sesion> {
     ref.read(carritosProvider.notifier).delete(id);
   }
 
-  void mostrarCarrito (BuildContext context, Carrito carrito){
-    Navigator.of(context).push(MaterialPageRoute(
-        builder: (ctx) => carritoScreen(carrito: carrito)));
+  void mostrarCarrito(BuildContext context, Carrito carrito) {
+    Navigator.of(context).push(
+        MaterialPageRoute(builder: (ctx) => carritoScreen(carrito: carrito)));
   }
 }
