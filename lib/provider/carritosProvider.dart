@@ -1,7 +1,8 @@
 import 'package:flutter_application_1/data/mis_carritos.dart';
 import 'package:flutter_application_1/models/carritoData.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
+//Ignora los errores de mayusculas en el normal
+// ignore: camel_case_types
 class carrito_Notifier extends StateNotifier<List<Carrito>>{
   carrito_Notifier() : super(misCarritosDePrueba);
 
