@@ -3,6 +3,7 @@ import 'package:flutter_application_1/models/carritoData.dart';
 import 'package:flutter_application_1/provider/carritosProvider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+// ignore: camel_case_types
 class carritoScreen extends ConsumerStatefulWidget {
   final Carrito carrito;
   const carritoScreen({super.key, required this.carrito});
@@ -11,6 +12,7 @@ class carritoScreen extends ConsumerStatefulWidget {
   ConsumerState<carritoScreen> createState() => _carritoScreenState();
 }
 
+// ignore: camel_case_types
 class _carritoScreenState extends ConsumerState<carritoScreen> {
   TextEditingController textFieldController = TextEditingController();
 
@@ -20,7 +22,6 @@ class _carritoScreenState extends ConsumerState<carritoScreen> {
 
     textFieldController.text = widget.carrito.nombre;
     textFieldController.text = widget.carrito.productos!;
-
   }
 
   @override
@@ -28,22 +29,28 @@ class _carritoScreenState extends ConsumerState<carritoScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Editar productos"),
-        backgroundColor: const Color.fromARGB(255, 169, 72, 37),
+        backgroundColor: Colors.orange,
         centerTitle: true,
       ),
+      backgroundColor: Colors.grey,
       body: TextField(
         controller: textFieldController,
         decoration: const InputDecoration(
-            hintText: "Introduce los productos"),
+          hintText: "Introduce los productos",
+          hintStyle: TextStyle(color: Colors.orange),
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => editaProductos(),
+        backgroundColor: Colors.orange,
         child: const Icon(Icons.save),
       ),
     );
   }
+
   editaProductos() {
-    Carrito nuevoProductosCarrito = Carrito(nombre: textFieldController.text,productos: textFieldController.text);
+    Carrito nuevoProductosCarrito = Carrito(
+        nombre: textFieldController.text, productos: textFieldController.text);
 
     ref
         .read(carritosProvider.notifier)

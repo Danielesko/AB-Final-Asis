@@ -51,7 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
       text: WavyAnimatedText(
         "TuCarrito",
         textStyle: const TextStyle(
-          color: Colors.red,
+          color: Colors.orange,
           fontSize: 32.0,
           fontWeight: FontWeight.bold,
         ),
