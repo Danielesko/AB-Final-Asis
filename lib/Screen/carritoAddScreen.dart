@@ -1,3 +1,5 @@
+// ignore_for_file: camel_case_types
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/models/carritoData.dart';
 import 'package:flutter_application_1/provider/carritosProvider.dart';
@@ -9,6 +11,7 @@ class carritoAddScreen extends ConsumerStatefulWidget {
   @override
   ConsumerState<carritoAddScreen> createState() => _carritoAddScreenState();
 }
+
 class _carritoAddScreenState extends ConsumerState<carritoAddScreen> {
   TextEditingController textFieldController = TextEditingController();
 
@@ -17,21 +20,26 @@ class _carritoAddScreenState extends ConsumerState<carritoAddScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Nuevo carrito"),
-        backgroundColor: const Color.fromARGB(255, 169, 72, 37),
+        backgroundColor: Colors.orange,
         centerTitle: true,
       ),
+      backgroundColor: Colors.grey,
       body: TextField(
         controller: textFieldController,
         decoration: const InputDecoration(
-            hintText: "Introduce el nombre de tu nuevo carrito"),
+          hintText: "Introduce el nombre de tu nuevo carrito",
+          hintStyle: TextStyle(color: Colors.orange),
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => saveCarrito(),
+        backgroundColor: Colors.orange,
         child: const Icon(Icons.save),
       ),
     );
   }
-   saveCarrito() {
+
+  saveCarrito() {
     Carrito nuevoCarrito = Carrito(nombre: textFieldController.text);
 
     ref.read(carritosProvider.notifier).add(nuevoCarrito);
