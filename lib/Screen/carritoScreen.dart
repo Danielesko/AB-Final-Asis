@@ -35,6 +35,8 @@ class _carritoScreenState extends ConsumerState<carritoScreen> {
       backgroundColor: Colors.grey,
       body: TextField(
         controller: textFieldController,
+        maxLines: null,
+        scrollPhysics: const NeverScrollableScrollPhysics(),
         decoration: const InputDecoration(
           hintText: "Introduce los productos",
           hintStyle: TextStyle(color: Colors.orange),

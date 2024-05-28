@@ -26,20 +26,25 @@ class _carritoEditScreenState extends ConsumerState<carritoEditScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Editar nombre"),
-        backgroundColor: const Color.fromARGB(255, 169, 72, 37),
+        backgroundColor: Colors.orange,
         centerTitle: true,
       ),
+      backgroundColor: Colors.grey,
       body: TextField(
         controller: textFieldController,
         decoration: const InputDecoration(
-            hintText: "Introduce el nuevo nombre"),
+          hintText: "Introduce el nuevo nombre",
+          hintStyle: TextStyle(color: Colors.orange),
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => edita(),
+        backgroundColor: Colors.orange,
         child: const Icon(Icons.save),
       ),
     );
   }
+
   edita() {
     Carrito nuevoCarritoAct = Carrito(nombre: textFieldController.text);
 
