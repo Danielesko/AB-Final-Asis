@@ -24,14 +24,14 @@ class _SesionState extends ConsumerState<Sesion> {
           children: [
             Image.asset(
               'assets/images/logo.png',
-              width: 30,
-              height: 30,
+              width: 50,
+              height: 50,
             ),
             const SizedBox(width: 10),
-            const Text('Carritos'),
+            const Text('Carritos'), 
           ],
         ),
-        backgroundColor: Colors.grey,
+        backgroundColor: Colors.orange,
       ),
       backgroundColor: Colors.grey,
       body: GridView.builder(
@@ -39,37 +39,48 @@ class _SesionState extends ConsumerState<Sesion> {
           crossAxisCount: 2, 
           childAspectRatio: 1.0, 
         ),
-        itemBuilder: (ctx, index) => Container(
-          margin: const EdgeInsets.all(8),
-          decoration: BoxDecoration(
-            color: Colors.orange,
-            border: Border.all(color: Colors.grey),
-            borderRadius: BorderRadius.circular(.0),
-          ),
-          child: ListTile(
-            title: Text(
-              listaCarritos[index].nombre,
-              style: const TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
+        itemBuilder: (ctx, index) => InkWell(
+          onTap: () => mostrarCarrito(context, listaCarritos[index]),
+          child: Container(
+            margin: const EdgeInsets.all(8),
+            decoration: BoxDecoration(
+              color: Colors.orange,
+              border: Border.all(color: Colors.grey),
+              borderRadius: BorderRadius.circular(.0),
             ),
-            trailing: Wrap(
+            child: Column(
               children: [
-                IconButton(
-                  onPressed: () => delete(listaCarritos[index].id),
-                  icon: const Icon(
-                    Icons.delete,
-                    color: Colors.black,
+                Expanded(
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: Text(
+                      listaCarritos[index].nombre,
+                      style: const TextStyle(
+                          fontSize: 19, fontWeight: FontWeight.bold),
+                    ),
                   ),
                 ),
-                IconButton(
-                  onPressed: () => edita(context, listaCarritos[index]),
-                  icon: const Icon(
-                    Icons.edit,
-                    color: Colors.black,
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    IconButton(
+                      onPressed: () => delete(listaCarritos[index].id),
+                      icon: const Icon(
+                        Icons.delete,
+                        color: Colors.black,
+                      ),
+                    ),
+                    IconButton(
+                      onPressed: () => edita(context, listaCarritos[index]),
+                      icon: const Icon(
+                        Icons.edit,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
-            onTap: () => mostrarCarrito(context, listaCarritos[index]),
           ),
         ),
         itemCount: listaCarritos.length,
